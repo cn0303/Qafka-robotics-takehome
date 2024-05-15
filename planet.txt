@@ -1,0 +1,9 @@
+QUESTION 1
+This question needs to be tackled in various steps. First since all destinations are 3D points we measure distance using Euclidean distance. The other thing we need to handle is the maximum possible distance - the problem says the farthest point is +-10000.00 so distance should be ~17320. So as a max distance we take 18000. This is the case if there are no teleportation stations and just Zearth at the farthest location. 
+Now we need to visit all the stations one by one and search if there exists a path from Earth to Zearth that is less than a given maximum threshold. If such a path exists, we can reduce the maximum distance and try again. We repeat the process until a smaller distance cannot be found. The final result is returned.
+Thus we use a binary search to minimise the maximum teleportation distance while we use the BFS algorithm to visit the necessary stations and check if a path from Earth to Zearth indeed exists that is lesser than the max distance.
+
+QUESTION 2
+Time complexity will be O(n^2 x k) where k is the number of binary search iterations and n is the number of stations (n^2 as TC of BFS). k is decided by max distance (18000) and precision (0.001) since the answer needs to be given in 2 decimal places. Taking log 2 of the same we get approximately 24. So it is O(24xn^2) 
+
+Time complexity could be used by coming up with potentially better search algorithms although binary search is better than the default linear search. Furthermore potential improvements in BFS for the given task could yield better results although the same would be more than necessary for the constraints of this problem. 

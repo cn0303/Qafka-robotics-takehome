@@ -1,0 +1,10 @@
+QUESTION 1
+The first step is realising that we can basically view this as multiple "layers" for each pizzeria where each layer shows us the range the pizzeria is able to cover. Thus when all these layers are superimposed on one another, we can see which areas are covered by more pizzerias than others. 
+Basically the area(s) that has access to most pizzerias will be at a higher number of intersections than its peers.
+Since the person cannot go diagonal in the town, we use the manhattan ditance to create a diamond shaped area which the pizzeria can cover.
+So after initialising the area with 0s, I iterate over each pizzeria location and its range to find the rhombus that covers the whole area using the manhattan distance. I then check if there are points outside the city which must not be counted and alter those that are within the city boundaries.
+
+QUESTION 2
+In the code the outer loop runs m (number of pizzerias) times and inside there are 2 loops for the x and y of the rhombus for each pizzeria. This goes from -r to r+1 thus being 2r+1 times. But r is dynamic and changes for each pizzeria. So it will be the summation 'm' times of (2r+1)^2 (because 2 nested loops).  
+
+The time complexity can be improved in terms of how we update the range of the pizzerias using more complex data structures like trees but is more than needed for the constraints of the problem. 
